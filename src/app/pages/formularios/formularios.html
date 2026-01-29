@@ -1,0 +1,346 @@
+<main class="h-full pb-16 overflow-y-auto w-full">
+
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700">Formularios Reactivos</h2>
+        <!-- CTA -->
+        <a
+            class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
+                </svg>
+                <span>Manejo de formularios en Angular desde el código TypeScript.</span>
+            </div>
+            <a href="https://sites.google.com/colegiolitterator.com/programacin-multimedia-y-dm/angular/formularios?authuser=1"
+                target="_blank"><span>Temario &RightArrow;</span></a>
+        </a>
+        <!-- General elements -->
+        <h4 class="mb-4 text-lg font-semibold text-gray-700 ">
+            Ejercicio práctico
+        </h4>
+
+        <form [formGroup]="practicaForm" (ngSubmit)="enviarFormulario()">
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+                <label
+                    class="border-b border-b-gray-400 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Nombre</span>
+                    <input formControlName="nombre"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="Introduce tu nombre" />
+                    @if (practicaForm.get('nombre')?.hasError('required') && practicaForm.get('nombre')?.touched &&
+                    practicaForm.get('nombre')?.dirty) {
+                    <div class="text-red-500">
+                        El nombre es obligatorio
+                    </div>
+                    }
+                </label>
+
+                <label
+                    class="border-b border-b-gray-400 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Apellido 1</span>
+
+                    <input formControlName="apellido1"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="Introduce tu apellido 1" />
+
+                    @if (practicaForm.get('apellido1')?.hasError('required') && practicaForm.get('apellido1')?.touched
+
+                    &&
+
+                    practicaForm.get('apellido1')?.dirty) {
+
+                    <div class="text-red-500">
+
+                        El apellido 1 es obligatorio
+
+                    </div>
+
+                    }
+
+                </label>
+
+
+                <label
+                    class="border-b border-b-gray-400 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Apellido 2</span>
+
+                    <input formControlName="apellido2"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="Introduce tu apellido 2" />
+
+                    @if (practicaForm.get('apellido2')?.hasError('required') && practicaForm.get('apellido2')?.touched
+
+                    &&
+
+                    practicaForm.get('apellido2')?.dirty) {
+
+                    <div class="text-red-500">
+
+                        El apellido 2 es obligatorio
+
+                    </div>
+
+                    }
+
+                </label>
+
+
+                <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">
+
+                        Tipo de documento
+
+                    </span>
+
+                    <div class="mt-2">
+
+                        <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
+
+                            <input type="radio" formControlName="tipoDocumento"
+                                class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                name="tipoDocumento" [value]="'dni'" />
+
+                            <span class="ml-2">DNI</span>
+
+                        </label>
+
+                        <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+
+                            <input type="radio" formControlName="tipoDocumento"
+                                class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                name="tipoDocumento" [value]="'pasaporte'" />
+
+                            <span class="ml-2">Pasaporte</span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 block text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Documento</span>
+
+                    <input formControlName="documento"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="Introduce DNI o Pasaporte" />
+
+                    @if (practicaForm.get('documento')?.hasError('required') && practicaForm.get('documento')?.touched
+
+                    && practicaForm.get('documento')?.dirty) {
+
+                    <div class="text-red-500">
+
+                        El documento es obligatorio
+
+                    </div>
+
+                    }
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">
+
+                        Genero
+
+                    </span>
+
+                    <select formControlName="genero"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+
+                        <option value="">Seleccione un genero</option>
+
+                        <option value="Masculino">Masculino</option>
+
+                        <option value="Femenino">Femenino</option>
+
+                    </select>
+
+                    @if (practicaForm.get('genero')?.hasError('required') && practicaForm.get('genero')?.touched &&
+
+                    practicaForm.get('genero')?.dirty) {
+
+                    <div class="text-red-500">
+
+                        El genero es obligatorio
+
+                    </div>
+
+                    }
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">
+
+                        Lista de prácticas
+
+                    </span>
+
+                    <select formControlName="listaPracticas"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+
+                        <option>Práctica 1</option>
+
+                        <option>Práctica 2</option>
+
+                        <option>Práctica 3</option>
+
+                        <option>Práctica 4</option>
+
+                    </select>
+
+                    @if (practicaForm.get('listaPracticas')?.hasError('required') &&
+
+                    practicaForm.get('listaPracticas')?.touched && practicaForm.get('listaPracticas')?.dirty) {
+
+                    <div class="text-red-500">
+
+                        La lista de prácticas es obligatoria
+
+                    </div>
+
+                    }
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">
+
+                        Lista de selección múltiple
+
+                    </span>
+
+                    <select formControlName="multiselect"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-multiselect focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                        multiple>
+
+                        <option>Option 1</option>
+
+                        <option>Option 2</option>
+
+                        <option>Option 3</option>
+
+                        <option>Option 4</option>
+
+                        <option>Option 5</option>
+
+                    </select>
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Fecha de nacimiento</span>
+
+                    <input type="date" formControlName="fechaNacimiento"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Telefono</span>
+
+                    <input type="tel" formControlName="telefono"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Email</span>
+
+                    <input type="email" formControlName="email"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">País</span>
+
+                    <input type="text" formControlName="pais"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Provincia</span>
+
+                    <input type="text" formControlName="provincia"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+
+                    <span class="text-gray-700 dark:text-gray-400">Localidad</span>
+
+                    <input type="text" formControlName="localidad"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+
+                </label>
+
+
+                <label class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Código postal</span>
+                    <input type="text" formControlName="codigoPostal"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+                </label>
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Dirección</span>
+                    <input type="text" formControlName="direccion"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-input focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+                </label>
+
+                <label class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Comentarios</span>
+                    <textarea formControlName="comentarios"
+                        class="bg-gray-50 block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                        rows="3" placeholder="Introduce tus comentarios"></textarea>
+                </label>
+
+                <div class="col-span-full col-start-1 -col-end-1 flex mt-6 text-sm">
+                    <label class="flex items-center dark:text-gray-400">
+                        <input type="checkbox" formControlName="aceptoPolitica"
+                            class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
+                        <span class="ml-2">
+                            Acepto la política de privacidad
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="h-12 w-48 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 sm:w-auto px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</main>

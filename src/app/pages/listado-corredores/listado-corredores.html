@@ -1,0 +1,27 @@
+<h2 class="my-6 text-2xl font-semibold text-gray-700">Corredores</h2>
+<div class="overflow-auto bg-gray-900 p-6 rounded-lg shadow-xl">
+    <table class="min-w-full text-white">
+        <thead>
+            <tr class="bg-purple-600 text-left text-sm uppercase">
+                <th class="p-4">Dorsal</th>
+                <th class="p-4">Corredor</th>
+                <th class="p-4">Categoría</th>
+                <th class="p-4 text-right">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-800">
+            @for (c of corredores(); track c.id) {
+            <tr class="hover:bg-gray-800 transition-colors">
+                <td class="p-4">{{ c.dorsal }}</td>
+                <td class="p-4 font-bold">{{ c.corredor }}</td>
+                <td class="p-4">{{ c.categoria }}</td>
+                <td class="p-4 text-right">
+                    <i class="material-icons text-purple-400 mx-1">account_circle</i>
+                    <i class="material-icons text-amber-500 mx-1">edit</i>
+                    <i class="material-icons text-green-500 mx-1">add</i>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

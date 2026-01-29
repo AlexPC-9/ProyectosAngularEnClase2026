@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /alumnos/a-perez/
+  
+  # Si el archivo solicitado existe, búscalo directamente
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Si el archivo no existe (como una ruta de Angular), redirige a index.html
+  RewriteRule . /alumnos/a-perez/index.html [L]
+</IfModule>

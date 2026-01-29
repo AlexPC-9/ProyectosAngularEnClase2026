@@ -1,0 +1,97 @@
+<h2 class="my-6 text-2xl font-semibold text-gray-700">Directivas: if, for y switch</h2>
+
+<div
+    class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md">
+    <div class="flex items-center">
+        <span class="mr-2">★</span>
+        <span>Modifican la estructura por defecto del HTML de un componente</span>
+    </div>
+    <span (click)="toggle()" class="hover:underline cursor-pointer">Ver más →</span>
+</div>
+
+<h4 class="mb-4 text-lg font-semibold text-gray-600">&#64;if Pulsar</h4>
+<div class="p-4 mb-8 bg-white rounded-lg shadow-md border min-h-[60px]">
+    @if (mostrar) {
+    <p class="text-gray-600">Muestra o oculta esta etiqueta cuando pulsamos en el enlace anterior.</p>
+    }
+</div>
+
+<h4 class="mb-4 text-lg font-semibold text-gray-600">Directiva &#64;for</h4>
+<div class="grid gap-6 mb-8 md:grid-cols-2">
+    <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs border">
+        <p class="text-gray-600 text-sm">Sintaxis básica:</p>
+        <pre class="p-2 bg-gray-100 rounded text-xs mt-2 text-purple-700">
+&#64;for (u of usuarios; track u.nombre) {{ '{ ... }' }}</pre>
+    </div>
+
+    <div class="min-w-0 p-4 text-white bg-purple-600 rounded-lg shadow-xs">
+        <h4 class="mb-4 font-semibold">Cuando usar &#64;index</h4>
+        <p class="text-sm">Usa track $index solo cuando el orden no cambia y la colección es estática.</p>
+    </div>
+</div>
+
+<div class="w-full overflow-hidden rounded-lg shadow-xs border mt-8">
+    <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+            <thead>
+                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
+                    <th class="px-4 py-3">Client</th>
+                    <th class="px-4 py-3">Amount</th>
+                    <th class="px-4 py-3">Status</th>
+                    <th class="px-4 py-3">Date</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y">
+                @for (u of usuarios; track u.nombre) {
+                <tr class="text-gray-700">
+                    <td class="px-4 py-3 text-sm">
+                        <div class="flex items-center text-sm">
+                            <div class="w-8 h-8 mr-3 rounded-full bg-gray-200"></div>
+                            <div>
+                                <p class="font-semibold">{{ u.nombre }}</p>
+                                <p class="text-xs text-gray-600">{{ u.rol }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-sm">{{ u.precio }} €</td>
+                    <td class="px-4 py-3 text-xs">
+                        @if (u.status === 'Aprobado') {
+                        <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full">Aprobado</span>
+                        } @else {
+                        <span
+                            class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full">Pendiente</span>
+                        }
+                    </td>
+                    <td class="px-4 py-3 text-sm">{{ u.fecha }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h4 class="mb-4 text-lg font-semibold text-gray-600">&#64;Switch</h4>
+<div class="grid gap-6 mt-8 md:grid-cols-2">
+    <div class="p-4 bg-white rounded-lg shadow-xs border">
+        <h4 class="mb-4 font-semibold text-gray-600">Sintaxis &#64;switch</h4>
+        <pre class="text-xs p-2 bg-gray-50 text-purple-700">
+&#64;switch (colorElegido) {{ '{' }}
+  &#64;case ('Rojo') {{ '{ ... }' }}
+{{ '}' }}</pre>
+    </div>
+
+    <div class="p-4 bg-white rounded-lg shadow-xs border flex items-center justify-around">
+        <div class="flex flex-col space-y-2">
+            <button (click)="colorElegido='Rojo'" class="bg-red-600 text-white px-4 py-1 rounded">Rojo</button>
+            <button (click)="colorElegido='Azul'" class="bg-blue-600 text-white px-4 py-1 rounded">Azul</button>
+            <button (click)="colorElegido='Verde'" class="bg-green-600 text-white px-4 py-1 rounded">Verde</button>
+        </div>
+        <div class="text-3xl font-bold">
+            @switch (colorElegido) {
+            @case ('Rojo') { <span class="text-red-600">Rojo</span> }
+            @case ('Azul') { <span class="text-blue-600">Azul</span> }
+            @case ('Verde') { <span class="text-green-600">Verde</span> }
+            }
+        </div>
+    </div>
+</div>

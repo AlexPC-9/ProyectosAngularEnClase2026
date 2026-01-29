@@ -1,0 +1,22 @@
+<div class="container px-6 mx-auto">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700">Ficha del Alumno</h2>
+
+    @if (alumno) {
+    <div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-xs border dark:bg-gray-800">
+        <img [src]="alumno.foto" class="w-32 h-32 rounded-full border-4 border-purple-600 mb-4">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">{{ alumno.nombre }}</h3>
+        <p class="text-gray-600 dark:text-gray-400">{{ alumno.email }}</p>
+
+        <div class="w-full mt-4">
+            <p class="text-sm font-medium text-gray-600">Progreso del curso: {{ alumno.progreso }}%</p>
+            <div class="h-4 w-full bg-gray-200 rounded-full mt-2">
+                <div class="h-4 bg-purple-600 rounded-full" [style.width]="alumno.progreso + '%'"></div>
+            </div>
+        </div>
+    </div>
+    } @else {
+    <div class="p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md">
+        Error: No se ha encontrado el alumno con ese ID.
+    </div>
+    }
+</div>

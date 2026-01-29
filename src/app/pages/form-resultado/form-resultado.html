@@ -1,0 +1,50 @@
+<main class="h-full pb-16 overflow-y-auto w-full p-6 bg-gray-50 dark:bg-gray-900">
+    <div class="container px-6 mx-auto">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            Resultado obtenido desde el formulario
+        </h2>
+
+        <div
+            class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md">
+            <div class="flex items-center">
+                <span class="mr-2">★</span>
+                <span>Manejo de formularios en Angular desde el código TypeScript.</span>
+            </div>
+            <span>Temario &RightArrow;</span>
+        </div>
+
+        <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+            Resultado del ejercicio práctico
+        </h4>
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+            <div class="flex items-center text-sm dark:text-gray-400">
+                <span class="mr-2">★</span>
+                <span class="font-bold mr-1">Nombre:</span> {{ datos?.nombre }}
+            </div>
+
+            <div class="flex items-center text-sm dark:text-gray-400">
+                <span class="mr-2">★</span>
+                <span class="font-bold mr-1">Apellido 1:</span> {{ datos?.apellido1 }}
+            </div>
+
+            <div class="flex items-center text-sm dark:text-gray-400">
+                <span class="mr-2">★</span>
+                <span class="font-bold mr-1">Correo electrónico:</span> {{ datos?.email }}
+            </div>
+
+            <div class="flex items-center text-sm dark:text-gray-400">
+                <span class="mr-2">★</span>
+                <span class="font-bold mr-1">Teléfono:</span> {{ datos?.telefono }}
+            </div>
+
+            <div class="flex items-center text-sm dark:text-gray-400">
+                <span class="mr-2">★</span>
+                <span class="font-bold mr-1">Localidad:</span> {{ datos?.localidad }}
+            </div>
+
+        </div>
+    </div>
+</main>
